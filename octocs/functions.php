@@ -66,4 +66,35 @@ function Octocs_widget_area(){
 	);
 }
 add_action('widgets_init','Octocs_widget_area');
+
+
+
+function shortcode($atts,$content){
+	
+	extract(shortcode_atts(array(
+		'color'=>'red',
+		'size'=>'25px',
+
+
+	),$atts));
+	$content=do_shortcode($content);
+	return "<p style='color:". $color ." ; font-size:". $size ."'>".$content."</p>";
+}
+add_shortcode('waseem','shortcode');
+
+
+
+function nested_shortcode($atts,$content){
+	
+	extract(shortcode_atts(array(
+		'color'=>'red',
+		'size'=>'25px',
+
+
+	),$atts));
+	$content=do_shortcode($content);
+	return "<p style='color:". $color ." ; font-size:". $size ."'>".$content."</p>";
+}
+add_shortcode('accademy','nested_shortcode');
+add_filter('widget_text','do_shortcode');
 ?>
