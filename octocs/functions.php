@@ -97,4 +97,23 @@ function nested_shortcode($atts,$content){
 }
 add_shortcode('accademy','nested_shortcode');
 add_filter('widget_text','do_shortcode');
+
+
+
+
+
+function my_custom_sidebar() {
+    register_sidebar(
+        array (
+            'name' => __( 'WP Sidebar', 'your-theme-domain' ),
+            'id' => 'custom-side-bar',
+            'description' => __( 'Custom Sidebar', 'your-theme-domain' ),
+            'before_widget' => '<div class="widget-content">',
+            'after_widget' => "</div>",
+            'before_title' => '<h3 class="widget-title">',
+            'after_title' => '</h3>',
+        )
+    );
+}
+add_action( 'widgets_init', 'my_custom_sidebar' );
 ?>
