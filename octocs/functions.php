@@ -116,4 +116,26 @@ function my_custom_sidebar() {
     );
 }
 add_action( 'widgets_init', 'my_custom_sidebar' );
+
+
+function image_gallery() {
+    register_sidebar(
+        array (
+            'name' => __( 'Image Gallery', 'your-theme-domain' ),
+            'id' => 'image_gallery',
+            'description' => __( 'Image Gallery', 'your-theme-domain' ),
+            'before_widget' => '<div class="widget-content">',
+            'after_widget' => "</div>",
+            'before_title' => '<h3 class="widget-title">',
+            'after_title' => '</h3>',
+        )
+    );
+}
+add_action( 'widgets_init', 'image_gallery' );
+
+
+
+
+
+
 ?>
